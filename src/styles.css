@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+}
+
+/* FONTS */
+
+@font-face {
+  font-family: 'SharpSansNo1-Bold';
+  src: 
+  url('../dist/assets/Fonts/SharpSansNo1-Bold.woff') format('woff'), 
+  url('../dist/assets/Fonts/SharpSansNo1-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SharpSansNo1-BoldItalic';
+  src: 
+  url('../dist/assets/Fonts/SharpSansNo1-BoldItalic.woff') format('woff'), 
+  url('../dist/assets/Fonts/SharpSansNo1-BoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SharpSansNo1-SemiBold';
+  src: 
+  url('../dist/assets/Fonts/SharpSansNo1-Semibold.eot'), 
+  url('../dist/assets/Fonts/SharpSansNo1-Semibold.woff') format('woff'),
+  url('../dist/assets/Fonts/SharpSansNo1-Semibold.woff2') format('woff2')
+}
+
+
+#attendee-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.attendee-form-input {
+  margin: 0.5rem;
+}
+
+/* HEADER STYLES */
+
+#header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  padding: 3rem;
+  background-image: url('../dist/assets/Group\ 4.svg') !important;
+  background-size: contain;
+}
+
+#header-webinar-button {
+  font-family: 'SharpSansNo1-Bold';
+  font-size: 0.7rem;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 15px;
+  letter-spacing: 0.93px;
+  width: auto;
+  color: white;
+  font-size: 0.5rem;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  background-color:  #C05100;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+}
+
+.header-title-italic {
+  font-family: 'SharpSansNo1-BoldItalic' !important;
+}
+
+.header-title-semiBold {
+  font-family: 'SharpSansNo1-SemiBold' !important;
+  font-size: 1rem !important;
+  line-height: 1rem !important;
+  letter-spacing: 0.5px;
+}
+
+.header-titles {
+  margin: 0 auto;
+  font-family: 'SharpSansNo1-Bold';
+  font-size: 2rem;
+  color: #02363D;
+  text-align: center;
+  line-height: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
