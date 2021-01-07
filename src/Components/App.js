@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import { Layout, Row, Col } from 'antd';
+import { Layout, Typography, Row, Col, List, Avatar} from 'antd';
+import Group5 from '../../dist/assets/Group5.jpg'
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Title, Text } = Typography;
+const { Header, Footer, Content } = Layout;
 
 const countries = () => (
 	<>
@@ -722,6 +724,25 @@ const countries = () => (
 	</>
 )
 
+const data = [ 
+	{
+		title: 'José Perez',
+		content: 'Presidente'
+	},
+	{
+		title: 'José Perez',
+		content: 'Customer Service Senior Manager'
+	},
+	{
+		title: 'José Perez',
+		content: 'Senior Customer Success Consultant'
+	},
+	{
+		title: 'José Perez',
+		content: 'Gerente de Consultoría de Soluciones'
+	},
+  ];
+  
 export default () => {
 
   const [attendeeData, setAttendeeData] = useState({ name: '', lastName: '', email: '', country: '', phone: '', jobTitle: ''})
@@ -747,22 +768,61 @@ export default () => {
   }
 
 	return (
-	
+
 	<Layout>
-      <Header style={{height: '20%'}}>
-		  <div id='header-container'>
-			<span id='header-webinar-button'>WEBINAR</span>
-			<p className='header-titles'>El reto de humanizar el CX financiero en 2021.</p>
-			<p className='header-titles header-title-italic'  >La experiencia de un Unicornio de Latam</p>
-			<p className='header-titles header-title-semiBold'>MIÉRCOLES 16 DE DICIEMBRE | 17 HS (HORARIO DE QUITO)</p>
-		  </div>
-	  </Header>
-      <Content>
-		<Row>
-			<Col span={12}> 
-				TEXTO
+      <Header className='header-container'>
+		  <Row>
+		  	<Col className='header-col' span={24}>
+				<Text className='header-webinar-button'>WEBINAR</Text>
+				<Title level={2} className='header-titles'>El reto de humanizar el CX financiero en 2021.</Title>
+				<Title level={2} className='header-titles header-title-italic'>La experiencia de un Unicornio de Latam</Title>
+				<Title level={5} className='header-titles header-title-semiBold'>MIÉRCOLES 16 DE DICIEMBRE | 17 HS (HORARIO DE QUITO)</Title>
 			</Col>
-			<Col span={12}>
+		  </Row>
+	  </Header>
+      <Content className='content-container'>
+	  	<Row>
+		  	<Col xs={0} sm={0} md={2} lg={3} xl={3}></Col>
+			<Col xs={24} sm={24} md={10} lg={9} xl={9}>
+				<img src={Group5} alt='sponsors'/>
+				<Row>
+					<Text className='text-content'>
+					Te invitan este webinar, donde trataremos la temática de cómo humanizar la experiencia del cliente de Banca y Seguros en el nuevo entorno digital.
+					</Text>
+					<Text className='text-content'>
+					Además podremos conocer las estrategias que aplicó LOREM para generar una experiencia memorable para sus clientes, mientras se convertía en el gran Unicornio de LATAM.
+					</Text>
+					<Text className='text-content'>
+					Escucha de primera mano la voz de nuestros especialistas:
+					</Text>
+				</Row>
+				<Row>
+				<List
+					itemLayout="horizontal"
+					dataSource={data}
+					style={{width: '100%'}}
+					size='large'
+					renderItem={item => (
+					<List.Item>
+						<List.Item.Meta
+						avatar={<Avatar size={55} />}
+						title={item.title}
+						description={item.content}
+						/>
+					</List.Item>
+				)}
+				/>
+				</Row>
+				<Row>
+				<Text className='text-content'>
+				Participa e inspírate para innovar y mejorar la interacción entre clientes y marcas con historias de éxito de empresas del ámbito financiero en América Latina.
+				</Text>
+				<Text className='text-content'>
+				¡Te esperamos!
+				</Text>				
+				</Row>
+			</Col>
+			<Col xs={24} sm={24} md={10} lg={9} xl={9}>
 				<form id='attendee-form' onSubmit={handleSubmit}>
 					<label className='attendee-form-input'>
 						Nombre:
@@ -793,8 +853,9 @@ export default () => {
 					<input type='submit' value='Submit' />
 				</form>
 			</Col>
+			<Col xs={0} sm={0} md={2} lg={3} xl={3}></Col>
 		</Row>
-		</Content>
+	  </Content>
       <Footer>Footer</Footer>
     </Layout>
 
