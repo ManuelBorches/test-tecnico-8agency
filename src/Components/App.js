@@ -10,6 +10,8 @@ import {
 	Input,
 	Select,
 	Button,
+	Modal,
+	Space
 } from 'antd';
 import Group5 from '../../dist/assets/Group5.jpg'
 import twitter from '../../dist/assets/twitter-4-128.png'
@@ -756,6 +758,29 @@ const data = [
 		content: 'Gerente de Consultoría de Soluciones'
 	},
   ];
+
+const success = () => {
+	Modal.info({
+		centered: true,
+		icon: null,
+		content: '¡Su inscripción al evento ha sido realizada con éxito!',
+		bodyStyle: {
+			textAlign: 'center',
+			width: '90%',
+			margin: '1rem'
+		},
+		okButtonProps: {
+			style: {
+				width: '5rem',
+				height: '2rem',
+				fontSize: '0.8rem',
+				color: 'white',
+				backgroundColor: '#02363D',
+				textAlign: 'center',
+			}
+		}
+	});
+}
   
 export default () => {
 
@@ -770,7 +795,7 @@ export default () => {
   }
 
   const handleSubmit = () => {
-
+	success()
 	// FETCHING DATA FROM LOCALSTORAGE ↓
 	let attendees = JSON.parse(localStorage.getItem('attendees'))
 	attendees ? attendees = [...attendees, attendeeData] : attendees = [attendeeData]
@@ -924,7 +949,7 @@ export default () => {
 				rules={[
 					{ 
 					required: true, 
-					message: 'Por favor, ingrese su apellido',
+					message: 'Por favor, ingrese su puesto de trabajo',
 					} 
 				]}
 				>
