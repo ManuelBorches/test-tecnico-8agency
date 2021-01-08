@@ -7,16 +7,21 @@
 
 ### Building and running on localhost
 
-First install dependencies:
+1. Install dependencies:
 
 ```sh
 npm install
 ```
+2. Build bundle:
 
-To run project on LocalHost:
+```sh
+npm run build-dev
+```
+
+3. Start the project:
 
 ```sh
 npm start
 ```
 
-## Go to http://localhost:9000/ on your browser and you will see the project on action 😎
+4. Ready! Go to http://localhost:9000/ on your browser and you will see the project on action 😎
