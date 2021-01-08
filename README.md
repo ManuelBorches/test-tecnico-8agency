@@ -1,6 +1,11 @@
-# test-tecnico-8agency
+# Technical Test for 8Agency
 
-## Building and running on localhost
+### Technology Stack:
+- Language: JavaScript
+- Framework: React
+- Styles: AntDesign
+
+### Building and running on localhost
 
 First install dependencies:
 
