@@ -1,7 +1,5 @@
 # test-tecnico-8agency
 
-Empty project.
-
 ## Building and running on localhost
 
 First install dependencies:
@@ -10,24 +8,10 @@ First install dependencies:
 npm install
 ```
 
-To create a production build:
+To run project on LocalHost:
 
 ```sh
-npm run build-prod
+npm start
 ```
 
-To create a development build:
-
-```sh
-npm run build-dev
-```
-
-## Running
-
-Open the file `dist/index.html` in your browser
-
-## Credits
-
-Made with [createapp.dev](https://createapp.dev/)
-
-INSTRUCCIONES DE COMO USAR APLICACION
+## Go to http://localhost:9000/ on your browser and you will see the project on action 😎

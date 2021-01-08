@@ -107,9 +107,15 @@ body {
   padding: 1.5rem !important;
 }
 
-#sponsors-image {
-  width: 100%;
-  margin: 1rem 1rem 2rem 0;
+#sponsors-images-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sponsors-image {
+  height: 1.3rem;
+  margin: 1rem 0.3rem 1rem 0.3rem;
 }
 
 .text-content {
