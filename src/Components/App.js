@@ -1,726 +1,740 @@
 import React, { useState } from 'react'
-import { Layout, Typography, Row, Col, List, Avatar} from 'antd';
+import { 
+	Layout, 
+	Typography, 
+	Row, 
+	Col, 
+	List, 
+	Avatar,
+	Form,
+	Input,
+	Select,
+	Button,
+} from 'antd';
 import Group5 from '../../dist/assets/Group5.jpg'
+import twitter from '../../dist/assets/twitter-4-128.png'
+import facebook from '../../dist/assets/facebook-4-128.png'
+import youtube from '../../dist/assets/youtube-4-128.png'
+import linkedin from '../../dist/assets/linkedin-4-128.png'
+import instagram from '../../dist/assets/instagram-4-128.png'
 
 const { Title, Text } = Typography;
 const { Header, Footer, Content } = Layout;
+const { Option } = Select;
 
 const countries = () => (
 	<>
-		<option value="" defaultValue>
-			Elegir opción
-		</option>
-		<option value='Afganistán' id='AF'>
+		<Option value='Afganistán' id='AF'>
 			Afganistán
-		</option>
-		<option value='Albania' id='AL'>
+		</Option>
+		<Option value='Albania' id='AL'>
 			Albania
-		</option>
-		<option value='Alemania' id='DE'>
+		</Option>
+		<Option value='Alemania' id='DE'>
 			Alemania
-		</option>
-		<option value='Andorra' id='AD'>
+		</Option>
+		<Option value='Andorra' id='AD'>
 			Andorra
-		</option>
-		<option value='Angola' id='AO'>
+		</Option>
+		<Option value='Angola' id='AO'>
 			Angola
-		</option>
-		<option value='Anguila' id='AI'>
+		</Option>
+		<Option value='Anguila' id='AI'>
 			Anguila
-		</option>
-		<option value='Antártida' id='AQ'>
+		</Option>
+		<Option value='Antártida' id='AQ'>
 			Antártida
-		</option>
-		<option value='Antigua y Barbuda' id='AG'>
+		</Option>
+		<Option value='Antigua y Barbuda' id='AG'>
 			Antigua y Barbuda
-		</option>
-		<option value='Antillas holandesas' id='AN'>
+		</Option>
+		<Option value='Antillas holandesas' id='AN'>
 			Antillas holandesas
-		</option>
-		<option value='Arabia Saudí' id='SA'>
+		</Option>
+		<Option value='Arabia Saudí' id='SA'>
 			Arabia Saudí
-		</option>
-		<option value='Argelia' id='DZ'>
+		</Option>
+		<Option value='Argelia' id='DZ'>
 			Argelia
-		</option>
-		<option value='Argentina' id='AR'>
+		</Option>
+		<Option value='Argentina' id='AR'>
 			Argentina
-		</option>
-		<option value='Armenia' id='AM'>
+		</Option>
+		<Option value='Armenia' id='AM'>
 			Armenia
-		</option>
-		<option value='Aruba' id='AW'>
+		</Option>
+		<Option value='Aruba' id='AW'>
 			Aruba
-		</option>
-		<option value='Australia' id='AU'>
+		</Option>
+		<Option value='Australia' id='AU'>
 			Australia
-		</option>
-		<option value='Austria' id='AT'>
+		</Option>
+		<Option value='Austria' id='AT'>
 			Austria
-		</option>
-		<option value='Azerbaiyán' id='AZ'>
+		</Option>
+		<Option value='Azerbaiyán' id='AZ'>
 			Azerbaiyán
-		</option>
-		<option value='Bahamas' id='BS'>
+		</Option>
+		<Option value='Bahamas' id='BS'>
 			Bahamas
-		</option>
-		<option value='Bahrein' id='BH'>
+		</Option>
+		<Option value='Bahrein' id='BH'>
 			Bahrein
-		</option>
-		<option value='Bangladesh' id='BD'>
+		</Option>
+		<Option value='Bangladesh' id='BD'>
 			Bangladesh
-		</option>
-		<option value='Barbados' id='BB'>
+		</Option>
+		<Option value='Barbados' id='BB'>
 			Barbados
-		</option>
-		<option value='Bélgica' id='BE'>
+		</Option>
+		<Option value='Bélgica' id='BE'>
 			Bélgica
-		</option>
-		<option value='Belice' id='BZ'>
+		</Option>
+		<Option value='Belice' id='BZ'>
 			Belice
-		</option>
-		<option value='Benín' id='BJ'>
+		</Option>
+		<Option value='Benín' id='BJ'>
 			Benín
-		</option>
-		<option value='Bermudas' id='BM'>
+		</Option>
+		<Option value='Bermudas' id='BM'>
 			Bermudas
-		</option>
-		<option value='Bhután' id='BT'>
+		</Option>
+		<Option value='Bhután' id='BT'>
 			Bhután
-		</option>
-		<option value='Bielorrusia' id='BY'>
+		</Option>
+		<Option value='Bielorrusia' id='BY'>
 			Bielorrusia
-		</option>
-		<option value='Birmania' id='MM'>
+		</Option>
+		<Option value='Birmania' id='MM'>
 			Birmania
-		</option>
-		<option value='Bolivia' id='BO'>
+		</Option>
+		<Option value='Bolivia' id='BO'>
 			Bolivia
-		</option>
-		<option value='Bosnia y Herzegovina' id='BA'>
+		</Option>
+		<Option value='Bosnia y Herzegovina' id='BA'>
 			Bosnia y Herzegovina
-		</option>
-		<option value='Botsuana' id='BW'>
+		</Option>
+		<Option value='Botsuana' id='BW'>
 			Botsuana
-		</option>
-		<option value='Brasil' id='BR'>
+		</Option>
+		<Option value='Brasil' id='BR'>
 			Brasil
-		</option>
-		<option value='Brunei' id='BN'>
+		</Option>
+		<Option value='Brunei' id='BN'>
 			Brunei
-		</option>
-		<option value='Bulgaria' id='BG'>
+		</Option>
+		<Option value='Bulgaria' id='BG'>
 			Bulgaria
-		</option>
-		<option value='Burkina Faso' id='BF'>
+		</Option>
+		<Option value='Burkina Faso' id='BF'>
 			Burkina Faso
-		</option>
-		<option value='Burundi' id='BI'>
+		</Option>
+		<Option value='Burundi' id='BI'>
 			Burundi
-		</option>
-		<option value='Cabo Verde' id='CV'>
+		</Option>
+		<Option value='Cabo Verde' id='CV'>
 			Cabo Verde
-		</option>
-		<option value='Camboya' id='KH'>
+		</Option>
+		<Option value='Camboya' id='KH'>
 			Camboya
-		</option>
-		<option value='Camerún' id='CM'>
+		</Option>
+		<Option value='Camerún' id='CM'>
 			Camerún
-		</option>
-		<option value='Canadá' id='CA'>
+		</Option>
+		<Option value='Canadá' id='CA'>
 			Canadá
-		</option>
-		<option value='Chad' id='TD'>
+		</Option>
+		<Option value='Chad' id='TD'>
 			Chad
-		</option>
-		<option value='Chile' id='CL'>
+		</Option>
+		<Option value='Chile' id='CL'>
 			Chile
-		</option>
-		<option value='China' id='CN'>
+		</Option>
+		<Option value='China' id='CN'>
 			China
-		</option>
-		<option value='Chipre' id='CY'>
+		</Option>
+		<Option value='Chipre' id='CY'>
 			Chipre
-		</option>
-		<option value='Ciudad estado del Vaticano' id='VA'>
+		</Option>
+		<Option value='Ciudad estado del Vaticano' id='VA'>
 			Ciudad estado del Vaticano
-		</option>
-		<option value='Colombia' id='CO'>
+		</Option>
+		<Option value='Colombia' id='CO'>
 			Colombia
-		</option>
-		<option value='Comores' id='KM'>
+		</Option>
+		<Option value='Comores' id='KM'>
 			Comores
-		</option>
-		<option value='Congo' id='CG'>
+		</Option>
+		<Option value='Congo' id='CG'>
 			Congo
-		</option>
-		<option value='Corea' id='KR'>
+		</Option>
+		<Option value='Corea' id='KR'>
 			Corea
-		</option>
-		<option value='Corea del Norte' id='KP'>
+		</Option>
+		<Option value='Corea del Norte' id='KP'>
 			Corea del Norte
-		</option>
-		<option value='Costa del Marfíl' id='CI'>
+		</Option>
+		<Option value='Costa del Marfíl' id='CI'>
 			Costa del Marfíl
-		</option>
-		<option value='Costa Rica' id='CR'>
+		</Option>
+		<Option value='Costa Rica' id='CR'>
 			Costa Rica
-		</option>
-		<option value='Croacia' id='HR'>
+		</Option>
+		<Option value='Croacia' id='HR'>
 			Croacia
-		</option>
-		<option value='Cuba' id='CU'>
+		</Option>
+		<Option value='Cuba' id='CU'>
 			Cuba
-		</option>
-		<option value='Dinamarca' id='DK'>
+		</Option>
+		<Option value='Dinamarca' id='DK'>
 			Dinamarca
-		</option>
-		<option value='Djibouri' id='DJ'>
+		</Option>
+		<Option value='Djibouri' id='DJ'>
 			Djibouri
-		</option>
-		<option value='Dominica' id='DM'>
+		</Option>
+		<Option value='Dominica' id='DM'>
 			Dominica
-		</option>
-		<option value='Ecuador' id='EC'>
+		</Option>
+		<Option value='Ecuador' id='EC'>
 			Ecuador
-		</option>
-		<option value='Egipto' id='EG'>
+		</Option>
+		<Option value='Egipto' id='EG'>
 			Egipto
-		</option>
-		<option value='El Salvador' id='SV'>
+		</Option>
+		<Option value='El Salvador' id='SV'>
 			El Salvador
-		</option>
-		<option value='Emiratos Arabes Unidos' id='AE'>
+		</Option>
+		<Option value='Emiratos Arabes Unidos' id='AE'>
 			Emiratos Arabes Unidos
-		</option>
-		<option value='Eritrea' id='ER'>
+		</Option>
+		<Option value='Eritrea' id='ER'>
 			Eritrea
-		</option>
-		<option value='Eslovaquia' id='SK'>
+		</Option>
+		<Option value='Eslovaquia' id='SK'>
 			Eslovaquia
-		</option>
-		<option value='Eslovenia' id='SI'>
+		</Option>
+		<Option value='Eslovenia' id='SI'>
 			Eslovenia
-		</option>
-		<option value='España' id='ES'>
+		</Option>
+		<Option value='España' id='ES'>
 			España
-		</option>
-		<option value='Estados Unidos' id='US'>
+		</Option>
+		<Option value='Estados Unidos' id='US'>
 			Estados Unidos
-		</option>
-		<option value='Estonia' id='EE'>
+		</Option>
+		<Option value='Estonia' id='EE'>
 			Estonia
-		</option>
-		<option value='c' id='ET'>
+		</Option>
+		<Option value='c' id='ET'>
 			Etiopía
-		</option>
-		<option value='Ex-República Yugoslava de Macedonia' id='MK'>
+		</Option>
+		<Option value='Ex-República Yugoslava de Macedonia' id='MK'>
 			Ex-República Yugoslava de Macedonia
-		</option>
-		<option value='Filipinas' id='PH'>
+		</Option>
+		<Option value='Filipinas' id='PH'>
 			Filipinas
-		</option>
-		<option value='Finlandia' id='FI'>
+		</Option>
+		<Option value='Finlandia' id='FI'>
 			Finlandia
-		</option>
-		<option value='Francia' id='FR'>
+		</Option>
+		<Option value='Francia' id='FR'>
 			Francia
-		</option>
-		<option value='Gabón' id='GA'>
+		</Option>
+		<Option value='Gabón' id='GA'>
 			Gabón
-		</option>
-		<option value='Gambia' id='GM'>
+		</Option>
+		<Option value='Gambia' id='GM'>
 			Gambia
-		</option>
-		<option value='Georgia' id='GE'>
+		</Option>
+		<Option value='Georgia' id='GE'>
 			Georgia
-		</option>
-		<option value='Georgia del Sur y las islas Sandwich del Sur' id='GS'>
+		</Option>
+		<Option value='Georgia del Sur y las islas Sandwich del Sur' id='GS'>
 			Georgia del Sur y las islas Sandwich del Sur
-		</option>
-		<option value='Ghana' id='GH'>
+		</Option>
+		<Option value='Ghana' id='GH'>
 			Ghana
-		</option>
-		<option value='Gibraltar' id='GI'>
+		</Option>
+		<Option value='Gibraltar' id='GI'>
 			Gibraltar
-		</option>
-		<option value='Granada' id='GD'>
+		</Option>
+		<Option value='Granada' id='GD'>
 			Granada
-		</option>
-		<option value='Grecia' id='GR'>
+		</Option>
+		<Option value='Grecia' id='GR'>
 			Grecia
-		</option>
-		<option value='Groenlandia' id='GL'>
+		</Option>
+		<Option value='Groenlandia' id='GL'>
 			Groenlandia
-		</option>
-		<option value='Guadalupe' id='GP'>
+		</Option>
+		<Option value='Guadalupe' id='GP'>
 			Guadalupe
-		</option>
-		<option value='Guam' id='GU'>
+		</Option>
+		<Option value='Guam' id='GU'>
 			Guam
-		</option>
-		<option value='Guatemala' id='GT'>
+		</Option>
+		<Option value='Guatemala' id='GT'>
 			Guatemala
-		</option>
-		<option value='Guayana' id='GY'>
+		</Option>
+		<Option value='Guayana' id='GY'>
 			Guayana
-		</option>
-		<option value='Guayana francesa' id='GF'>
+		</Option>
+		<Option value='Guayana francesa' id='GF'>
 			Guayana francesa
-		</option>
-		<option value='Guinea' id='GN'>
+		</Option>
+		<Option value='Guinea' id='GN'>
 			Guinea
-		</option>
-		<option value='Guinea Ecuatorial' id='GQ'>
+		</Option>
+		<Option value='Guinea Ecuatorial' id='GQ'>
 			Guinea Ecuatorial
-		</option>
-		<option value='Guinea-Bissau' id='GW'>
+		</Option>
+		<Option value='Guinea-Bissau' id='GW'>
 			Guinea-Bissau
-		</option>
-		<option value='Haití' id='HT'>
+		</Option>
+		<Option value='Haití' id='HT'>
 			Haití
-		</option>
-		<option value='Holanda' id='NL'>
+		</Option>
+		<Option value='Holanda' id='NL'>
 			Holanda
-		</option>
-		<option value='Honduras' id='HN'>
+		</Option>
+		<Option value='Honduras' id='HN'>
 			Honduras
-		</option>
-		<option value='Hong Kong R. A. E' id='HK'>
+		</Option>
+		<Option value='Hong Kong R. A. E' id='HK'>
 			Hong Kong R. A. E
-		</option>
-		<option value='Hungría' id='HU'>
+		</Option>
+		<Option value='Hungría' id='HU'>
 			Hungría
-		</option>
-		<option value='India' id='IN'>
+		</Option>
+		<Option value='India' id='IN'>
 			India
-		</option>
-		<option value='Indonesia' id='ID'>
+		</Option>
+		<Option value='Indonesia' id='ID'>
 			Indonesia
-		</option>
-		<option value='Irak' id='IQ'>
+		</Option>
+		<Option value='Irak' id='IQ'>
 			Irak
-		</option>
-		<option value='Irán' id='IR'>
+		</Option>
+		<Option value='Irán' id='IR'>
 			Irán
-		</option>
-		<option value='Irlanda' id='IE'>
+		</Option>
+		<Option value='Irlanda' id='IE'>
 			Irlanda
-		</option>
-		<option value='Isla Bouvet' id='BV'>
+		</Option>
+		<Option value='Isla Bouvet' id='BV'>
 			Isla Bouvet
-		</option>
-		<option value='Isla Christmas' id='CX'>
+		</Option>
+		<Option value='Isla Christmas' id='CX'>
 			Isla Christmas
-		</option>
-		<option value='Isla Heard e Islas McDonald' id='HM'>
+		</Option>
+		<Option value='Isla Heard e Islas McDonald' id='HM'>
 			Isla Heard e Islas McDonald
-		</option>
-		<option value='Islandia' id='IS'>
+		</Option>
+		<Option value='Islandia' id='IS'>
 			Islandia
-		</option>
-		<option value='Islas Caimán' id='KY'>
+		</Option>
+		<Option value='Islas Caimán' id='KY'>
 			Islas Caimán
-		</option>
-		<option value='Islas Cook' id='CK'>
+		</Option>
+		<Option value='Islas Cook' id='CK'>
 			Islas Cook
-		</option>
-		<option value='Islas de Cocos o Keeling' id='CC'>
+		</Option>
+		<Option value='Islas de Cocos o Keeling' id='CC'>
 			Islas de Cocos o Keeling
-		</option>
-		<option value='Islas Faroe' id='FO'>
+		</Option>
+		<Option value='Islas Faroe' id='FO'>
 			Islas Faroe
-		</option>
-		<option value='Islas Fiyi' id='FJ'>
+		</Option>
+		<Option value='Islas Fiyi' id='FJ'>
 			Islas Fiyi
-		</option>
-		<option value='Islas Malvinas Islas Falkland' id='FK'>
+		</Option>
+		<Option value='Islas Malvinas Islas Falkland' id='FK'>
 			Islas Malvinas Islas Falkland
-		</option>
-		<option value='Islas Marianas del norte' id='MP'>
+		</Option>
+		<Option value='Islas Marianas del norte' id='MP'>
 			Islas Marianas del norte
-		</option>
-		<option value='Islas Marshall' id='MH'>
+		</Option>
+		<Option value='Islas Marshall' id='MH'>
 			Islas Marshall
-		</option>
-		<option value='Islas menores de Estados Unidos' id='UM'>
+		</Option>
+		<Option value='Islas menores de Estados Unidos' id='UM'>
 			Islas menores de Estados Unidos
-		</option>
-		<option value='Islas Palau' id='PW'>
+		</Option>
+		<Option value='Islas Palau' id='PW'>
 			Islas Palau
-		</option>
-		<option value='Islas Salomón' d='SB'>
+		</Option>
+		<Option value='Islas Salomón' d='SB'>
 			Islas Salomón
-		</option>
-		<option value='Islas Tokelau' id='TK'>
+		</Option>
+		<Option value='Islas Tokelau' id='TK'>
 			Islas Tokelau
-		</option>
-		<option value='Islas Turks y Caicos' id='TC'>
+		</Option>
+		<Option value='Islas Turks y Caicos' id='TC'>
 			Islas Turks y Caicos
-		</option>
-		<option value='Islas Vírgenes EE.UU.' id='VI'>
+		</Option>
+		<Option value='Islas Vírgenes EE.UU.' id='VI'>
 			Islas Vírgenes EE.UU.
-		</option>
-		<option value='Islas Vírgenes Reino Unido' id='VG'>
+		</Option>
+		<Option value='Islas Vírgenes Reino Unido' id='VG'>
 			Islas Vírgenes Reino Unido
-		</option>
-		<option value='Israel' id='IL'>
+		</Option>
+		<Option value='Israel' id='IL'>
 			Israel
-		</option>
-		<option value='Italia' id='IT'>
+		</Option>
+		<Option value='Italia' id='IT'>
 			Italia
-		</option>
-		<option value='Jamaica' id='JM'>
+		</Option>
+		<Option value='Jamaica' id='JM'>
 			Jamaica
-		</option>
-		<option value='Japón' id='JP'>
+		</Option>
+		<Option value='Japón' id='JP'>
 			Japón
-		</option>
-		<option value='Jordania' id='JO'>
+		</Option>
+		<Option value='Jordania' id='JO'>
 			Jordania
-		</option>
-		<option value='Kazajistán' id='KZ'>
+		</Option>
+		<Option value='Kazajistán' id='KZ'>
 			Kazajistán
-		</option>
-		<option value='Kenia' id='KE'>
+		</Option>
+		<Option value='Kenia' id='KE'>
 			Kenia
-		</option>
-		<option value='Kirguizistán' id='KG'>
+		</Option>
+		<Option value='Kirguizistán' id='KG'>
 			Kirguizistán
-		</option>
-		<option value='Kiribati' id='KI'>
+		</Option>
+		<Option value='Kiribati' id='KI'>
 			Kiribati
-		</option>
-		<option value='Kuwait' id='KW'>
+		</Option>
+		<Option value='Kuwait' id='KW'>
 			Kuwait
-		</option>
-		<option value='Laos' id='LA'>
+		</Option>
+		<Option value='Laos' id='LA'>
 			Laos
-		</option>
-		<option value='Lesoto' id='LS'>
+		</Option>
+		<Option value='Lesoto' id='LS'>
 			Lesoto
-		</option>
-		<option value='Letonia' id='LV'>
+		</Option>
+		<Option value='Letonia' id='LV'>
 			Letonia
-		</option>
-		<option value='Líbano' id='LB'>
+		</Option>
+		<Option value='Líbano' id='LB'>
 			Líbano
-		</option>
-		<option value='Liberia' id='LR'>
+		</Option>
+		<Option value='Liberia' id='LR'>
 			Liberia
-		</option>
-		<option value='Libia' id='LY'>
+		</Option>
+		<Option value='Libia' id='LY'>
 			Libia
-		</option>
-		<option value='Liechtenstein' id='LI'>
+		</Option>
+		<Option value='Liechtenstein' id='LI'>
 			Liechtenstein
-		</option>
-		<option value='Lituania' id='LT'>
+		</Option>
+		<Option value='Lituania' id='LT'>
 			Lituania
-		</option>
-		<option value='Luxemburgo' id='LU'>
+		</Option>
+		<Option value='Luxemburgo' id='LU'>
 			Luxemburgo
-		</option>
-		<option value='Macao R. A. E' id='MO'>
+		</Option>
+		<Option value='Macao R. A. E' id='MO'>
 			Macao R. A. E
-		</option>
-		<option value='Madagascar' id='MG'>
+		</Option>
+		<Option value='Madagascar' id='MG'>
 			Madagascar
-		</option>
-		<option value='Malasia' id='MY'>
+		</Option>
+		<Option value='Malasia' id='MY'>
 			Malasia
-		</option>
-		<option value='Malawi' id='MW'>
+		</Option>
+		<Option value='Malawi' id='MW'>
 			Malawi
-		</option>
-		<option value='Maldivas' id='MV'>
+		</Option>
+		<Option value='Maldivas' id='MV'>
 			Maldivas
-		</option>
-		<option value='Malí' id='ML'>
+		</Option>
+		<Option value='Malí' id='ML'>
 			Malí
-		</option>
-		<option value='Malta' id='MT'>
+		</Option>
+		<Option value='Malta' id='MT'>
 			Malta
-		</option>
-		<option value='Marruecos' id='MA'>
+		</Option>
+		<Option value='Marruecos' id='MA'>
 			Marruecos
-		</option>
-		<option value='Martinica' id='MQ'>
+		</Option>
+		<Option value='Martinica' id='MQ'>
 			Martinica
-		</option>
-		<option value='Mauricio' id='MU'>
+		</Option>
+		<Option value='Mauricio' id='MU'>
 			Mauricio
-		</option>
-		<option value='Mauritania' id='MR'>
+		</Option>
+		<Option value='Mauritania' id='MR'>
 			Mauritania
-		</option>
-		<option value='Mayotte' id='YT'>
+		</Option>
+		<Option value='Mayotte' id='YT'>
 			Mayotte
-		</option>
-		<option value='México' id='MX'>
+		</Option>
+		<Option value='México' id='MX'>
 			México
-		</option>
-		<option value='Micronesia' id='FM'>
+		</Option>
+		<Option value='Micronesia' id='FM'>
 			Micronesia
-		</option>
-		<option value='Moldavia' id='MD'>
+		</Option>
+		<Option value='Moldavia' id='MD'>
 			Moldavia
-		</option>
-		<option value='Mónaco' id='MC'>
+		</Option>
+		<Option value='Mónaco' id='MC'>
 			Mónaco
-		</option>
-		<option value='Mongolia' id='MN'>
+		</Option>
+		<Option value='Mongolia' id='MN'>
 			Mongolia
-		</option>
-		<option value='Montserrat' id='MS'>
+		</Option>
+		<Option value='Montserrat' id='MS'>
 			Montserrat
-		</option>
-		<option value='Mozambique' id='MZ'>
+		</Option>
+		<Option value='Mozambique' id='MZ'>
 			Mozambique
-		</option>
-		<option value='Namibia' id='NA'>
+		</Option>
+		<Option value='Namibia' id='NA'>
 			Namibia
-		</option>
-		<option value='Nauru' id='NR'>
+		</Option>
+		<Option value='Nauru' id='NR'>
 			Nauru
-		</option>
-		<option value='Nepal' id='NP'>
+		</Option>
+		<Option value='Nepal' id='NP'>
 			Nepal
-		</option>
-		<option value='Nicaragua' id='NI'>
+		</Option>
+		<Option value='Nicaragua' id='NI'>
 			Nicaragua
-		</option>
-		<option value='Níger' id='NE'>
+		</Option>
+		<Option value='Níger' id='NE'>
 			Níger
-		</option>
-		<option value='Nigeria' id='NG'>
+		</Option>
+		<Option value='Nigeria' id='NG'>
 			Nigeria
-		</option>
-		<option value='Niue' id='NU'>
+		</Option>
+		<Option value='Niue' id='NU'>
 			Niue
-		</option>
-		<option value='Norfolk' id='NF'>
+		</Option>
+		<Option value='Norfolk' id='NF'>
 			Norfolk
-		</option>
-		<option value='Noruega' id='NO'>
+		</Option>
+		<Option value='Noruega' id='NO'>
 			Noruega
-		</option>
-		<option value='Nueva Caledonia' id='NC'>
+		</Option>
+		<Option value='Nueva Caledonia' id='NC'>
 			Nueva Caledonia
-		</option>
-		<option value='Nueva Zelanda' id='NZ'>
+		</Option>
+		<Option value='Nueva Zelanda' id='NZ'>
 			Nueva Zelanda
-		</option>
-		<option value='Omán' id='OM'>
+		</Option>
+		<Option value='Omán' id='OM'>
 			Omán
-		</option>
-		<option value='Panamá' id='PA'>
+		</Option>
+		<Option value='Panamá' id='PA'>
 			Panamá
-		</option>
-		<option value='Papua Nueva Guinea' id='PG'>
+		</Option>
+		<Option value='Papua Nueva Guinea' id='PG'>
 			Papua Nueva Guinea
-		</option>
-		<option value='Paquistán' id='PK'>
+		</Option>
+		<Option value='Paquistán' id='PK'>
 			Paquistán
-		</option>
-		<option value='Paraguay' id='PY'>
+		</Option>
+		<Option value='Paraguay' id='PY'>
 			Paraguay
-		</option>
-		<option value='Perú' id='PE'>
+		</Option>
+		<Option value='Perú' id='PE'>
 			Perú
-		</option>
-		<option value='Pitcairn' id='PN'>
+		</Option>
+		<Option value='Pitcairn' id='PN'>
 			Pitcairn
-		</option>
-		<option value='Polinesia francesa' id='PF'>
+		</Option>
+		<Option value='Polinesia francesa' id='PF'>
 			Polinesia francesa
-		</option>
-		<option value='Polonia' id='PL'>
+		</Option>
+		<Option value='Polonia' id='PL'>
 			Polonia
-		</option>
-		<option value='Portugal' id='PT'>
+		</Option>
+		<Option value='Portugal' id='PT'>
 			Portugal
-		</option>
-		<option value='Puerto Rico' id='PR'>
+		</Option>
+		<Option value='Puerto Rico' id='PR'>
 			Puerto Rico
-		</option>
-		<option value='Qatar' id='QA'>
+		</Option>
+		<Option value='Qatar' id='QA'>
 			Qatar
-		</option>
-		<option value='Reino Unido' id='UK'>
+		</Option>
+		<Option value='Reino Unido' id='UK'>
 			Reino Unido
-		</option>
-		<option value='República Centroafricana' id='CF'>
+		</Option>
+		<Option value='República Centroafricana' id='CF'>
 			República Centroafricana
-		</option>
-		<option value='República Checa' id='CZ'>
+		</Option>
+		<Option value='República Checa' id='CZ'>
 			República Checa
-		</option>
-		<option value='República de Sudáfrica' id='ZA'>
+		</Option>
+		<Option value='República de Sudáfrica' id='ZA'>
 			República de Sudáfrica
-		</option>
-		<option value='República Democrática del Congo Zaire' id='CD'>
+		</Option>
+		<Option value='República Democrática del Congo Zaire' id='CD'>
 			República Democrática del Congo Zaire
-		</option>
-		<option value='República Dominicana' id='DO'>
+		</Option>
+		<Option value='República Dominicana' id='DO'>
 			República Dominicana
-		</option>
-		<option value='Reunión' id='RE'>
+		</Option>
+		<Option value='Reunión' id='RE'>
 			Reunión
-		</option>
-		<option value='Ruanda' id='RW'>
+		</Option>
+		<Option value='Ruanda' id='RW'>
 			Ruanda
-		</option>
-		<option value='Rumania' id='RO'>
+		</Option>
+		<Option value='Rumania' id='RO'>
 			Rumania
-		</option>
-		<option value='Rusia' id='RU'>
+		</Option>
+		<Option value='Rusia' id='RU'>
 			Rusia
-		</option>
-		<option value='Samoa' id='WS'>
+		</Option>
+		<Option value='Samoa' id='WS'>
 			Samoa
-		</option>
-		<option value='Samoa occidental' id='AS'>
+		</Option>
+		<Option value='Samoa occidental' id='AS'>
 			Samoa occidental
-		</option>
-		<option value='San Kitts y Nevis' id='KN'>
+		</Option>
+		<Option value='San Kitts y Nevis' id='KN'>
 			San Kitts y Nevis
-		</option>
-		<option value='San Marino' id='SM'>
+		</Option>
+		<Option value='San Marino' id='SM'>
 			San Marino
-		</option>
-		<option value='San Pierre y Miquelon' id='PM'>
+		</Option>
+		<Option value='San Pierre y Miquelon' id='PM'>
 			San Pierre y Miquelon
-		</option>
-		<option value='San Vicente e Islas Granadinas' id='VC'>
+		</Option>
+		<Option value='San Vicente e Islas Granadinas' id='VC'>
 			San Vicente e Islas Granadinas
-		</option>
-		<option value='Santa Helena' id='SH'>
+		</Option>
+		<Option value='Santa Helena' id='SH'>
 			Santa Helena
-		</option>
-		<option value='Santa Lucía' id='LC'>
+		</Option>
+		<Option value='Santa Lucía' id='LC'>
 			Santa Lucía
-		</option>
-		<option value='Santo Tomé y Príncipe' id='ST'>
+		</Option>
+		<Option value='Santo Tomé y Príncipe' id='ST'>
 			Santo Tomé y Príncipe
-		</option>
-		<option value='Senegal' id='SN'>
+		</Option>
+		<Option value='Senegal' id='SN'>
 			Senegal
-		</option>
-		<option value='Serbia y Montenegro' id='YU'>
+		</Option>
+		<Option value='Serbia y Montenegro' id='YU'>
 			Serbia y Montenegro
-		</option>
-		<option value='Sychelles' id='SC'>
+		</Option>
+		<Option value='Sychelles' id='SC'>
 			Seychelles
-		</option>
-		<option value='Sierra Leona' id='SL'>
+		</Option>
+		<Option value='Sierra Leona' id='SL'>
 			Sierra Leona
-		</option>
-		<option value='Singapur' id='SG'>
+		</Option>
+		<Option value='Singapur' id='SG'>
 			Singapur
-		</option>
-		<option value='Siria' id='SY'>
+		</Option>
+		<Option value='Siria' id='SY'>
 			Siria
-		</option>
-		<option value='Somalia' id='SO'>
+		</Option>
+		<Option value='Somalia' id='SO'>
 			Somalia
-		</option>
-		<option value='Sri Lanka' id='LK'>
+		</Option>
+		<Option value='Sri Lanka' id='LK'>
 			Sri Lanka
-		</option>
-		<option value='Suazilandia' id='SZ'>
+		</Option>
+		<Option value='Suazilandia' id='SZ'>
 			Suazilandia
-		</option>
-		<option value='Sudán' id='SD'>
+		</Option>
+		<Option value='Sudán' id='SD'>
 			Sudán
-		</option>
-		<option value='Suecia' id='SE'>
+		</Option>
+		<Option value='Suecia' id='SE'>
 			Suecia
-		</option>
-		<option value='Suiza' id='CH'>
+		</Option>
+		<Option value='Suiza' id='CH'>
 			Suiza
-		</option>
-		<option value='Surinam' id='SR'>
+		</Option>
+		<Option value='Surinam' id='SR'>
 			Surinam
-		</option>
-		<option value='Svalbard' id='SJ'>
+		</Option>
+		<Option value='Svalbard' id='SJ'>
 			Svalbard
-		</option>
-		<option value='Tailandia' id='TH'>
+		</Option>
+		<Option value='Tailandia' id='TH'>
 			Tailandia
-		</option>
-		<option value='Taiwán' id='TW'>
+		</Option>
+		<Option value='Taiwán' id='TW'>
 			Taiwán
-		</option>
-		<option value='Tanzania' id='TZ'>
+		</Option>
+		<Option value='Tanzania' id='TZ'>
 			Tanzania
-		</option>
-		<option value='Tayikistán' id='TJ'>
+		</Option>
+		<Option value='Tayikistán' id='TJ'>
 			Tayikistán
-		</option>
-		<option value='Territorios británicos del océano Indico' id='IO'>
+		</Option>
+		<Option value='Territorios británicos del océano Indico' id='IO'>
 			Territorios británicos del océano Indico
-		</option>
-		<option value='Territorios franceses del sur' id='TF'>
+		</Option>
+		<Option value='Territorios franceses del sur' id='TF'>
 			Territorios franceses del sur
-		</option>
-		<option value='Timor Oriental' id='TP'>
+		</Option>
+		<Option value='Timor Oriental' id='TP'>
 			Timor Oriental
-		</option>
-		<option value='Togo' id='TG'>
+		</Option>
+		<Option value='Togo' id='TG'>
 			Togo
-		</option>
-		<option value='Tonga' id='TO'>
+		</Option>
+		<Option value='Tonga' id='TO'>
 			Tonga
-		</option>
-		<option value='Trinidad y Tobago' id='TT'>
+		</Option>
+		<Option value='Trinidad y Tobago' id='TT'>
 			Trinidad y Tobago
-		</option>
-		<option value='Túnez' id='TN'>
+		</Option>
+		<Option value='Túnez' id='TN'>
 			Túnez
-		</option>
-		<option value='Turkmenistán' id='TM'>
+		</Option>
+		<Option value='Turkmenistán' id='TM'>
 			Turkmenistán
-		</option>
-		<option value='Turquía' id='TR'>
+		</Option>
+		<Option value='Turquía' id='TR'>
 			Turquía
-		</option>
-		<option value='Tuvalu' id='TV'>
+		</Option>
+		<Option value='Tuvalu' id='TV'>
 			Tuvalu
-		</option>
-		<option value='Ucrania' id='UA'>
+		</Option>
+		<Option value='Ucrania' id='UA'>
 			Ucrania
-		</option>
-		<option value='Uganda' id='UG'>
+		</Option>
+		<Option value='Uganda' id='UG'>
 			Uganda
-		</option>
-		<option value='Uruguay' id='UY'>
+		</Option>
+		<Option value='Uruguay' id='UY'>
 			Uruguay
-		</option>
-		<option value='Uzbekistán' id='UZ'>
+		</Option>
+		<Option value='Uzbekistán' id='UZ'>
 			Uzbekistán
-		</option>
-		<option value='Vanuatu' id='VU'>
+		</Option>
+		<Option value='Vanuatu' id='VU'>
 			Vanuatu
-		</option>
-		<option value='Venezuela' id='VE'>
+		</Option>
+		<Option value='Venezuela' id='VE'>
 			Venezuela
-		</option>
-		<option value='Vietnam' id='VN'>
+		</Option>
+		<Option value='Vietnam' id='VN'>
 			Vietnam
-		</option>
-		<option value='Wallis y Futuna' id='WF'>
+		</Option>
+		<Option value='Wallis y Futuna' id='WF'>
 			Wallis y Futuna
-		</option>
-		<option value='Yemen' id='YE'>
+		</Option>
+		<Option value='Yemen' id='YE'>
 			Yemen
-		</option>
-		<option value='Zambia' id='ZM'>
+		</Option>
+		<Option value='Zambia' id='ZM'>
 			Zambia
-		</option>
-		<option value='Zimbabue' id='ZW'>
+		</Option>
+		<Option value='Zimbabue' id='ZW'>
 			Zimbabue
-		</option>
+		</Option>
 	</>
 )
 
@@ -746,16 +760,17 @@ const data = [
 export default () => {
 
   const [attendeeData, setAttendeeData] = useState({ name: '', lastName: '', email: '', country: '', phone: '', jobTitle: ''})
+
+  const [form] = Form.useForm();
   
-  const handleChange = (e) => {
-    e.preventDefault()
+  const handleChange = (event) => {
     let obj = {}
-    obj[e.target.name] = e.target.value
+    obj[event.target.id] = event.target.value
     setAttendeeData({...attendeeData, ...obj})
   }
 
-  const handleSubmit = (e) => {
-  	e.preventDefault()
+  const handleSubmit = () => {
+
 	// FETCHING DATA FROM LOCALSTORAGE ↓
 	let attendees = JSON.parse(localStorage.getItem('attendees'))
 	attendees ? attendees = [...attendees, attendeeData] : attendees = [attendeeData]
@@ -763,7 +778,8 @@ export default () => {
     // SAVING THE DATA IN LOCALSTORAGE ↓
     localStorage.setItem('attendees' , JSON.stringify(attendees))
 
-    // CLEARING THE FORM ↓
+	// CLEARING THE FORM ↓
+	form.resetFields()
     setAttendeeData({ name: '', lastName: '', email: '', country: '', phone: '', jobTitle: ''})
   }
 
@@ -782,9 +798,9 @@ export default () => {
 	  </Header>
       <Content className='content-container'>
 	  	<Row>
-		  	<Col xs={0} sm={0} md={2} lg={3} xl={3}></Col>
-			<Col xs={24} sm={24} md={10} lg={9} xl={9}>
-				<img src={Group5} alt='sponsors'/>
+		  	<Col xs={0} sm={0} md={2} lg={2} xl={3}></Col>
+			<Col xs={24} sm={24} md={9} lg={9} xl={8}>
+				<img src={Group5} alt='sponsors' id='sponsors-image'/>
 				<Row>
 					<Text className='text-content'>
 					Te invitan este webinar, donde trataremos la temática de cómo humanizar la experiencia del cliente de Banca y Seguros en el nuevo entorno digital.
@@ -800,11 +816,13 @@ export default () => {
 				<List
 					itemLayout="horizontal"
 					dataSource={data}
-					style={{width: '100%'}}
+					className='content-list-speakers'
 					size='large'
+					split={false}
 					renderItem={item => (
-					<List.Item>
+					<List.Item className='list-item'>
 						<List.Item.Meta
+						className='list-item-data'
 						avatar={<Avatar size={55} />}
 						title={item.title}
 						description={item.content}
@@ -816,47 +834,128 @@ export default () => {
 				<Row>
 				<Text className='text-content'>
 				Participa e inspírate para innovar y mejorar la interacción entre clientes y marcas con historias de éxito de empresas del ámbito financiero en América Latina.
-				</Text>
+				</Text>		
 				<Text className='text-content'>
 				¡Te esperamos!
-				</Text>				
+				</Text>	
+				<img src={Group5} alt='sponsors' id='sponsors-image'/>
 				</Row>
 			</Col>
-			<Col xs={24} sm={24} md={10} lg={9} xl={9}>
-				<form id='attendee-form' onSubmit={handleSubmit}>
-					<label className='attendee-form-input'>
-						Nombre:
-						<input type='text' name='name' onChange={handleChange} value={attendeeData.name} required/>
-					</label>
-					<label className='attendee-form-input'>
-						Apellido:
-						<input type='text' name='lastName' onChange={handleChange} value={attendeeData.lastName} required/>
-					</label>
-					<label className='attendee-form-input'>
-						Correo electrónico del trabajo:
-						<input type='email' name='email' onChange={handleChange} value={attendeeData.email} required/>
-					</label>
-					<label className='attendee-form-input'>
-						País:
-						<select type='text' name='country' onChange={handleChange} value={attendeeData.country} required>
+			<Col xs={0} sm={0} md={2} lg={2} xl={2}></Col>
+			<Col xs={24} sm={24} md={9} lg={9} xl={8}>
+			<Form
+				form={form}
+				onFinish={handleSubmit}
+				requiredMark={false}
+				layout='vertical'
+				className='form-container'
+				scrollToFirstError
+				>
+				<Form.Item className='form-title'>
+					<Text> ¡Inscríbete y reserva tu lugar ahora!</Text>
+				</Form.Item>
+				<Form.Item
+				name="name"
+				label="Nombre:"
+				rules={[ 
+					{ 
+					required: true, 
+					message: 'Por favor, ingrese su nombre',
+					} 
+				]}
+				>
+					<Input onChange={handleChange} value={attendeeData.name}/>
+				</Form.Item>
+				<Form.Item
+				
+				name="lastName"
+				label="Apellido:"
+				rules={[
+					{ 
+					required: true, 
+					message: 'Por favor, ingrese su apellido',
+					} 
+				]}
+				>
+					<Input onChange={handleChange} value={attendeeData.lastName} />
+				</Form.Item>
+				<Form.Item
+					name="email"
+					label="Correo electrónico del trabajo:"
+					rules={[
+					{
+						type: 'email',
+						message: 'El email ingresado no es válido',
+					},
+					{
+						required: true,
+						message: 'Por favor, ingrese un email',
+					},
+					]}
+				>
+					<Input onChange={handleChange} value={attendeeData.email}/>
+				</Form.Item>
+				<Form.Item
+					name="country"
+					label="País:"
+					rules={[
+					{ 
+						required: true, 
+						message: 'Por favor, seleccione un país' 
+					}
+					]}
+				>
+					<Select 
+					onChange={(value) => setAttendeeData({...attendeeData, country: value})} 
+					value={attendeeData.country}>
 						{countries()}
-						</select>
-					</label>
-					<label className='attendee-form-input'>
-						Número de teléfono:
-						<input type='number' name='phone' onChange={handleChange} value={attendeeData.phone} required/>
-					</label>
-					<label className='attendee-form-input'>
-						Puesto de Trabajo:
-						<input type='text' name='jobTitle' onChange={handleChange} value={attendeeData.jobTitle} required/>
-					</label>
-					<input type='submit' value='Submit' />
-				</form>
+					</Select>
+				</Form.Item>
+				<Form.Item
+					name="phone"
+					label="Número de teléfono:"
+					rules={[{ required: true, message: 'Por favor, ingrese un número de teléfono' }]}
+				>
+					<Input onChange={handleChange} value={attendeeData.phone}/>
+				</Form.Item>
+				<Form.Item
+				name="jobTitle"
+				label="Puesto de trabajo:"
+				rules={[
+					{ 
+					required: true, 
+					message: 'Por favor, ingrese su apellido',
+					} 
+				]}
+				>
+					<Input onChange={handleChange} value={attendeeData.jobTitle}/>
+				</Form.Item>
+				<Form.Item>
+					<Button type="default" htmlType="submit" id='form-button-submit'>
+					Inscríbete
+					</Button>
+				</Form.Item>
+			</Form>
 			</Col>
-			<Col xs={0} sm={0} md={2} lg={3} xl={3}></Col>
+			<Col xs={0} sm={0} md={2} lg={2} xl={3}></Col>
 		</Row>
 	  </Content>
-      <Footer>Footer</Footer>
+      <Footer id='footer-container'>
+		  <Row id='footer-row'>
+			  <Col xs={24} sm={4} md={4} lg={4} xl={4} id='copyright'>
+			  	<Text>© 2020</Text>
+			  </Col>
+			  <Col xs={24} sm={20} md={20} lg={20} xl={20} id='social-column'>
+				  <div id='social-container'>
+					<img className='footer-images' src={twitter}/>
+					<img className='footer-images' src={facebook}/>
+					<img className='footer-images' src={youtube}/>
+					<img className='footer-images' src={instagram}/>
+					<img className='footer-images' src={linkedin}/>
+				  </div>
+			  </Col>
+		  </Row>
+	  </Footer>
     </Layout>
 
 	)

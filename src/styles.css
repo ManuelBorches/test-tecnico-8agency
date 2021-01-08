@@ -42,6 +42,15 @@ body {
 			format('woff2');
 }
 
+
+@font-face {
+	font-family: 'SharpSansNo1-Medium';
+  src: url('../dist/assets/Fonts/SharpSansNo1-Medium.woff'),
+    format('woff'),
+		url('../dist/assets/Fonts/SharpSansNo1-Medium.woff2')
+			format('woff2');
+}
+
 /* HEADER STYLES */
 
 .header-container {
@@ -79,7 +88,7 @@ body {
 	font-size: 2rem;
 	color: #02363d !important;
   text-align: center;
-  line-height: 1.5rem !important;
+  line-height: 2rem !important;
 }
 
 .header-title-italic {
@@ -98,17 +107,106 @@ body {
   padding: 1.5rem !important;
 }
 
+#sponsors-image {
+  width: 100%;
+  margin: 1rem 1rem 2rem 0;
+}
+
 .text-content {
   font-family: 'ProximaNova-Regular';
+  color: #405457;
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
 }
 
-#attendee-form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
+.content-list-speakers {
+  width: 100%;
 }
 
-.attendee-form-input {
-	margin: 0.5rem;
+.list-item {
+  padding: 0 !important;
+  margin-bottom: 1.5rem;
+}
+
+.ant-list-item-meta-title {
+  font-family: 'SharpSansNo1-SemiBold';
+  color: #02363D !important;
+  font-size: 1rem;
+}
+
+.ant-list-item-meta-description {
+  font-family: 'SharpSansNo1-Medium';
+  color: #02363D !important;
+  font-size: 0.8rem;
+}
+
+.form-container {
+  margin: 1rem auto;
+  padding: 2rem;
+  background-color: #F8F9F9;
+  font-family: 'SharpSansNo1-SemiBold';
+}
+
+.form-title {
+  font-family: 'SharpSansNo1-SemiBold';
+  margin-bottom: 1rem auto;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.ant-form-item-required, .ant-form-item-label  {
+  font-family: 'SharpSansNo1-SemiBold' !important;
+  font-size: 0.8rem !important;
+  padding-bottom: 0 !important;
+}
+
+#form-button-submit {
+  width: 100%;
+  height: 3rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #02363D;
+}
+
+/* FOOTER STYLES */
+
+#footer-container {
+  background-color: #aaaaaa !important;
+  height: fit-content ;
+  display: flex;
+  align-items: center;
+  font-family: 'ProximaNova-Regular';
+  font-size: 1rem;
+  color: #405457 !important;
+}
+
+#footer-row {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+}
+
+#copyright {
+  text-align: center;
+}
+
+#social-column {
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+#social-container {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-images {
+  height: 3rem;
+  margin: 2rem 0.5rem 1rem 0.5rem;
 }
